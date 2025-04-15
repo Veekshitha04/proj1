@@ -157,7 +157,7 @@ resource "azurerm_private_dns_a_record" "sql_a_record" {
   ttl                 = 300
   records             = [azurerm_private_endpoint.conn.private_service_connection[0].private_ip_address]
 }
-
+/*
 resource "azurerm_public_ip" "vm_pip" {
   name                = "${var.prefix}-vm-pip"
   location            = azurerm_resource_group.rg.location
@@ -246,7 +246,7 @@ resource "azurerm_network_interface_security_group_association" "vm_nic_nsg_asso
 
 #bastion subnet
 resource "azurerm_subnet" "bastion_subnet" {
-  name                 = "AzureBastionSubnet" # Must use this exact name
+  name                 = "AzureBastionSubnet" 
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = ["10.0.0.128/27"]
@@ -274,4 +274,6 @@ resource "azurerm_bastion_host" "bastion" {
     public_ip_address_id = azurerm_public_ip.bastion_ip.id
   }
 }
+*/
+
 
