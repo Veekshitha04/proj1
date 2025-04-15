@@ -8,6 +8,7 @@ resource "azurerm_resource_group" "rg" {
     location = "canadacentral"
 }
 
+
 resource "azurerm_virtual_network" "vnet" {
   name                = "${var.prefix}-vnet"
   location            = azurerm_resource_group.rg.location
