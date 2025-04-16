@@ -117,6 +117,12 @@ resource "azurerm_sql_database" "db" {
   location            = azurerm_resource_group.rg.location
   server_name         = azurerm_sql_server.server.name 
 }
+resource "azurerm_mssql_firewall_rule" "allow_azure_services" {
+  name             = "AllowAzureServices"
+  server_id        = azurerm_sql_server.server.id
+  start_ip_address = "0.0.0.0"
+  end_ip_address   = "0.0.0.0"
+}
 
 # resource "azurerm_sql_virtual_network_rule" "conn" {
 #   name                = "${var.prefix}-conn"
